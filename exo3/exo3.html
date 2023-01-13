@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- b1. tạo một for check bock thông thường -->
+    <label>Saisir le rayon</label>
+    <!-- chỉ cần thay đổi giá trị tại input thì sẽ :onchange qui permet de lancer fonction calcul -->
+    <input type="number" id="rayon" onchange="calcul()">
+    <br>
+    <label>Perimètre: </label>
+    <!-- onchange sẽ kích hoạt calcul khi ta check vào đó -->
+    <input type="checkbox" id="perimetre" checked onchange="calcul()">
+    <div id="resultat"></div>
+    <script>
+        // kết nối input
+        const nb = document.querySelector("#rayon");
+        // kết nối resultat div
+        const divResultat = document.querySelector("#resultat");
+        // kết nối checkbock
+        const perimetreCheckbox = document.querySelector("#perimetre");
+
+        // kích hoạt event
+
+        function calcul() {
+            let resultat;
+            //để kiểm tra calcul có lancer ko thì dùng console.log ("coucou")
+            if (perimetreCheckbox.checked) {
+                resultat = perimetre(nb.value);
+            } else {
+              
+                resultat = aire(nb.value);
+    
+            }
+            divResultat.innerHTML = resultat;
+        }
+        
+        //hàm tính bán kính hình tròn 2*pi*bán kính
+        function perimetre(x) {
+            return "Perimetre: " + (2 * Math.PI * x);
+        }
+        //hàm tính diện tích hình trong pi*bán kính mũ 2
+        function aire(x) {
+            return "Aire " + (Math.PI * Math.pow(x, 2));
+        }   
+         </script>
+</body>
+
+</html>

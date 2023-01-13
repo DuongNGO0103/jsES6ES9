@@ -1,0 +1,51 @@
+<!-- bước 1: tạo form trên html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- tạo label -->
+   <label>Saisir la factorielle voulue: </label> 
+   <!-- tạo ô nhập dạng number  có id là fac -->
+   <input type="number" id="factorielle"/>
+   <!-- tạo nút valider -->
+   <button class="btn" onclick="">Valider</button>
+   <!-- tạo một dòng div là resultat -->
+   <div id="resultat"></div>
+   <!-- đây là bước quan trọng biến static thành dynamique --> 
+<script>
+    const inputFactorielle = document.querySelector("#factorielle");
+    console.log(inputFactorielle);
+    const btn= document.querySelector(".btn");
+    console.log(btn);
+    const divResult = document.querySelector("#resultat");
+    console.log(divResult);
+    //vì thế ta sẽ để inputFactorielle là biến và giá trị của nó .value
+        // bên trong nombre bây giờ là giá trị mà hiện diện bên trong inputFactorielle
+        //ngay khi nhấn nút click trên bouton, sẽ tiến hành actions for bên dưới, 
+    btn.addEventListener("click", function(){
+        const nombre= inputFactorielle.value; 
+        let resultat = 1; 
+        for(let i = 1; i<=nombre; i++){
+        resultat= resultat*i; 
+    }
+    console.log("Fac de " + nombre +": "+ resultat);
+    divResult.innerHTML="Fac de " + nombre +": "+ resultat;
+    });
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+</html>

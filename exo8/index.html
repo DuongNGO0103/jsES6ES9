@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label>Saisir le nom à ajouter</label>
+<input type="text" id="nom">
+<button class="btn">Valider</button>
+<div id="resultat"></div>
+<script src="exo8.js">
+
+    let noms=[];
+    const inputNom=document.querySelector("#nom");
+    const btn=document.querySelector(".btn");
+    const divResultat= document.querySelector("#resultat");
+    //khi nhấn nút btn thì sẽ kích hoạt function ko tên
+    btn.addEventListener("click", function(){
+            noms.push(inputNom.value);
+            console.log(noms);
+           afficherNoms();
+           //đây là dòng quan trong để cho giá trị nhập trở lại null khi nhấn nút valider
+           inputNom.value=null;
+        }
+    )
+    function afficherNoms(){
+        let texte = `<ul>`;
+        for(let nom of noms){
+            texte+=`<li>${nom}</li>`
+    }
+    texte+= `</ul>`;
+    divResultat.innerHTML=texte;
+    }
+</script>
+</body>
+</html>
