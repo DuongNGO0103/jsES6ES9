@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Saisir le nombre 1: </label>
+    <input type="number" id="nb1">
+    <br>
+    <label>Saisir le nombre2: </label>
+    <input type="number" id="nb2">
+    <br>
+    <select id="function">
+        <option value="1">multiplication</option>
+        <option value="2">addition</option>
+        <option value="3">division</option>
+        <option value="4">soustraction</option>
+        <option value="5">puissance</option>
+    </select>
+    <br>
+    <button class="btn">valider</button>
+    <div id="resultat"></div>
+<script>
+const inputNb1=document.querySelector("#nb1");
+const inputNb2=document.querySelector("#nb2");
+const inputSigne=document.querySelector("#function");
+const divResultat=document.querySelector("#resultat");
+const btn = document.querySelector(".btn");
+
+//khi nhấn nút sẽ kích hoạt hàm formatage lên: 
+
+btn.addEventListener("click",function(){
+    const nb1=parseInt(inputNb1.value);
+    const nb2=parseInt(inputNb2.value);
+
+    switch(parseInt(inputSigne.value)){
+        case 1:divResultat.innerHTML=formatage(multiplication,nb1,nb2);
+        break;
+        case 2:divResultat.innerHTML=formatage(addition,nb1,nb2);
+        break;
+        case 3:divResultat.innerHTML=formatage(division,nb1,nb2);
+        break;
+        case 4:divResultat.innerHTML=formatage(soustraction,nb1,nb2);
+        break;
+        default: divResultat.innerHTML=affichageMessage("non validé")
+
+    }
+})
+
+
+const formatage=(maFonction,x,y)=>{
+    let txt = "<div style='color:blue;border:2px solid green'>"
+    txt+=`le resultat est ${maFonction(x,y)}`;
+    txt+=`</div>`;
+    return txt;
+}
+const affichageMessage=(message)=>
+{
+    let txt="<div style='color:red; border:2px solid green'>"
+        txt+=`le resultat est ${message}`;
+        txt+=`</div>`;
+return txt;
+}
+const addition=(x,y)=>x+y;
+const soustraction=(x,y)=>x-y;
+const multiplication=(x,y)=>x*y;
+const division=(x,y)=>x/y
+
+</script>
+</body>
+</html>

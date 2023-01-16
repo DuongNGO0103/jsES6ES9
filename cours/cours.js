@@ -1,7 +1,4 @@
-const perso = {
-      nom:"Milo",
-      age:31
-}
+const addition=(x,y)=>x+y;
 
-const perso2={...perso};
-perso2.nom="toto";
+const calculPar3=(maFonction,x)=> maFonction(x,3);
+console.log(calculPar3(addition,2));

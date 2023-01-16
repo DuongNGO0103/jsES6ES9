@@ -1,12 +1,15 @@
-const perso = {
-    nom:"Milo",
-    age:31,
- }
- const persoGuerrier={
-    ...perso,
-    type:"Guerrier",
-    force:5
- };
-const {nom,age, ...carac}=persoGuerrier;
-console.log(carac); 
-console.log(nom);
+const tab="livre";
+console.log(afficherReq(tab,
+   {champ:"type", valeur:"policier"}, 
+   {champ:"auteur", valeur:"Milo"}
+   ));
+
+function afficherReq(tab,...conditions){
+   let req = ``;
+
+for(let [indice,condition] of conditions.entries()){
+   req += `${condition.champ}: ${condition.valeur}`
+ if(indice != conditions.length-1) req += " AND ";  
+}
+return `select * from ${tab} where ${req}`
+}

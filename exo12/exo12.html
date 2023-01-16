@@ -31,13 +31,10 @@
             persos.splice(findIndex(nomInput.value),1);
             divResultat.innerHTML=afficherPerso();
         })
-        function findIndex(nom){
-            return persos.findIndex(function(perso){
-                return perso.nom===nom;
-            })
-        }
+       const findIndex = nom=>persos.findIndex(perso =>perso.nom===nom)
         divResultat.innerHTML=afficherPerso();
-        function afficherPerso(){
+
+        const afficherPerso=()=>{
              let listePerso=``; 
             for(let perso of persos){
                 listePerso+=`<ul>`;

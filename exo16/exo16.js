@@ -37,7 +37,7 @@ const p3={
 }
 afficherPersonnages(p1,p2,p3);
 //nhac lai: persos chinh la rest. la tab chua p1,p2,p3
-function afficherPersonnages(...persos){
+const afficherPersonnages=(...persos)=>{
     console.log("=================================")
     for(let perso of persos){
          console.log(`nom: ${perso.nom}`);
